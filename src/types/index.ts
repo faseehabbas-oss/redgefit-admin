@@ -4,7 +4,7 @@ export interface User {
   name: string;
   role: 'admin' | 'superadmin' | 'trainer' | 'trainee';
   avatar?: string;
-  createdAt: Date;
+  createdAt?: Date;
   lastActive?: Date;
   subscriptionStatus?: 'free_trial' | 'active' | 'expired' | 'shopify';
   appVersion?: string;
@@ -12,6 +12,12 @@ export interface User {
   programId?: string;
   trainerId?: string;
   isBanned?: boolean;
+}
+
+export interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
 }
 
 export interface Trainee extends User {
